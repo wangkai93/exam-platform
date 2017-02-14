@@ -7,7 +7,6 @@ release.properties
 dependency-reduced-pom.xml
 buildNumber.properties
 .mvn/timing.properties
-
 *.class
 
 # Log file
@@ -21,5 +20,3 @@ buildNumber.properties
 *.ra
 .settings
 
-# Exclude maven wrapper
-!/.mvn/wrapper/maven-wrapper.jar
