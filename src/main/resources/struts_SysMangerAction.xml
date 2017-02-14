@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+
+<package name="com.cissst.action.SysMangerAction" namespace="/setting" extends="struts-default">
+
+<interceptors>
+  <interceptor-stack name="forbitReSubmit">
+     <interceptor-ref name="token">
+     <param name="excludeMethods">addUser,listUser</param>
+     </interceptor-ref>
+      <interceptor-ref name="defaultStack"/>
+  </interceptor-stack>
+</interceptors>
+
+<default-interceptor-ref name="forbitReSubmit"></default-interceptor-ref>
+
+<action name="sysMangerAction" class="sysMangerAction">
+  <result name="addUser">/setting/userSetting2.jsp</result>
+  <result name="listUser">/setting/userSetting.jsp</result>
+  <result name="input">/setting/userSetting2.jsp</result>
+  <result name="invalid.token">/error.jsp</result>
+ 
+  
+  <result name="findUser">/setting/userSetting.jsp</result>
+  <result name="findThemeType">/setting/qlTypeSetting.jsp</result>
+  <result name="findThemeArea">/setting/qlRangeSetting.jsp</result>
+  <result name="findThemeDifficulty">/setting/qlDifficultySetting.jsp</result>
+  <result name="findClassType">/setting/classTypeSetting.jsp</result>
+  <result name="findStudentType">/setting/studentTypeSetting.jsp</result> 
+</action>
+
+</package>
+</struts>

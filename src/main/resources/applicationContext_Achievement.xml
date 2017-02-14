@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+  http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.5.xsd
+  http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.5.xsd">
+	<!-- 引入init.properties中属性 -->
+	<bean id="placeholderConfig"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="location">
+			<value>classpath:init.properties</value>
+		</property>
+	</bean>
+
+	
+	
+	
+	
+	<!--以下各个模块之间为数据访问层的配置-->
+	<bean id="iAchievementMangerDao" class="com.cissst.iDao.IAchievementMangerDao"
+		parent="hibernateTemplate" ></bean>
+	<bean id="iExamPlanMangerDao" class="com.cissst.iDao.IExamPlanMangerDao" 
+		parent="hibernateTemplate" ></bean>
+	<bean id="iClassMangerDao" class="com.cissst.iDao.IClassMangerDao"
+		parent="hibernateTemplate"></bean>	
+	<!--以下各个模块之间为业务逻辑层的配置-->
+	<bean id="iAchievementMangerService" class="com.cissst.iService.IAchievementMangerService">
+		<property name="iAchievementMangerDao" ref="iAchievementMangerDao" />
+		<property name="iExamPlanMangerDao" ref="iExamPlanMangerDao"/>
+		<property name="iClassMangerDao" ref="iClassMangerDao"></property>
+		
+	</bean>
+	
+	<!--以下各个模块之间为数据展现层的配置-->
+				
+	<bean id="achievementMangerAction" class="com.cissst.action.AchievementMangerAction" scope="prototype">
+		<property name="achievementMangerService" ref="iAchievementMangerService" />
+		
+	</bean>
+</beans>

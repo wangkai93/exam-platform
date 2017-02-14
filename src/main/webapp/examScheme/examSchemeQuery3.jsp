@@ -1,0 +1,297 @@
+<%@ page language="java" import="java.util.*" pageEncoding="utf-8"%>
+<%@taglib prefix="s" uri="/struts-tags" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <base href="<%=basePath%>examScheme/">
+    
+    <title>iSoftStone培训中心考试平台</title>
+    
+	<meta http-equiv="pragma" content="no-cache">
+	<meta http-equiv="cache-control" content="no-cache">
+	<meta http-equiv="expires" content="0">    
+	<meta http-equiv="keywords" content="keyword1,keyword2,keyword3">
+	<meta http-equiv="description" content="This is my page">
+	<!--
+	<link rel="stylesheet" type="text/css" href="styles.css">
+	-->
+
+  </head>
+  
+  <BODY bgcolor="#FFFFFF" leftmargin="0" topmargin="0" marginwidth="0" marginheight="0">
+
+<SCRIPT language="JavaScript1.2" src="../webep/js/coolmenus4.js"></SCRIPT>
+<SCRIPT language="JavaScript1.2" src="../webep/js/cm_addins.js"></SCRIPT>
+	<TABLE width="100%" border="0" cellpadding="0" cellspacing="0">
+		<TR>
+			<TD>
+				<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" class="pagetop">
+					<TR>
+						<TD width="420" nowrap class="headerLogo"><IMG src="../webep/logo.gif"><IMG src="../webep/logo_js.gif">
+						</TD>
+						<TD class="welcome">
+						</TD>
+						<TD width="187" align="right" nowrap class="headerHelp">
+							<TABLE border="0" cellpadding="4" cellspacing="2">
+								<TR>
+									<TD align="center" class="sys"><A href="../Index.htm" class="syslink">退出登录</A> <A href="password.htm" class="syslink">修改密码</A>
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+				</TABLE>
+				<TABLE width="100%" border="0" cellpadding="0" cellspacing="0">
+					<TR>
+						<TD height="24" class="menuMain">
+							<TABLE width="100%" border="0" cellpadding="0" cellspacing="0">
+								<TR>
+									<TD>&nbsp;	
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD height="2" class="menuBl1"><IMG src="../webep/space.gif" width="1" height="1"></TD>
+					</TR>
+					<TR>
+						<TD height="3" class="menuBl2"><IMG src="../webep/space.gif" width="1" height="1"></TD>
+					</TR>
+				</TABLE>
+				<TABLE width="100%" border="0" cellpadding="0" cellspacing="0">
+					<TR>
+						<TD><IMG src="../webep/space.gif" width="778" height="1"></TD>
+					</TR>
+				</TABLE>
+<P>
+<SCRIPT language=JavaScript1.2>showMenu("","../../exam-platform",2);
+</SCRIPT>
+				<TABLE width="100%" border="0" cellpadding="0" cellspacing="0" bgcolor="#999999">
+					<TR>
+						<TD><IMG src="../webep/space.gif" width="1" height="1"></TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE><BR>
+	<TABLE width="100%" border="0" cellpadding="0" cellspacing="0">
+		<TR>
+			<TD width="20">&nbsp;	
+			</TD>
+			<TD align="left" valign="top">
+				<TABLE border="0" class="top" width="700">
+					<TR>
+						<TD class="FormTitle" height="2" width="100%"><B>考试方案信息</B>
+						</TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;	
+						</TD>
+					</TR>
+					<TR>
+						<TD>
+							<TABLE align="center" border="0" width="90%">
+								<TR>
+									<TD height="20" width="1%">
+									</TD>
+									<TD width="14%">	考试方案编号：
+									</TD>
+									<TD>										
+										<font color="#808080"><s:textfield name="tpt.preId" label="考试方案编号"></s:textfield></font>
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+										考试方案名称：
+										<font color="#808080"><s:textfield name="tpt.preName" label="考试方案名称"></s:textfield></font>
+									</TD>
+								</TR>
+								<TR>
+									<TD height="20">
+									</TD>
+									<TD>	考试方案描述：
+									</TD>
+									<TD>
+<TEXTAREA class=box cols=40 name="txtAddress" rows=3 disabled><s:textarea name="tpt.preDesc"></s:textarea></TEXTAREA> 
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD>
+<HR width="98%">
+						</TD>
+					</TR>
+					<TR>
+						<TD valign="top">
+		<TABLE align="center" width="97%" border="0">
+						<TR>
+									<TD height="30">考试方案策略：
+									</TD>
+								</TR>
+								<TR>
+									<TD height="40" width="96%" valign="top">
+							<TABLE align="center" border="0" class="ItemList" height="20" width="96%">
+								<TR height="24" align="middle">
+												
+												<TD class="ItemTitle" width="5%">	序号
+												</TD>
+												<TD class="ItemTitle" width="17%">	题目范围
+												</TD>
+												<TD class="ItemTitle" width="9%">	题目难度
+												</TD>
+												<TD class="ItemTitle" width="10%">	题目类型
+												</TD>
+												<TD class="ItemTitle" width="10%">	出题方式
+												</TD>
+												<TD class="ItemTitle" width="18%">	批阅方式
+												</TD>
+												<TD class="ItemTitle" width="8%">	每题分数
+												</TD>
+												<TD class="ItemTitle" width="8%">	题量
+												</TD>
+												
+												<TD class="ItemTitle" width="8%">	分数合计
+												</TD>
+											</TR>
+						
+												<s:iterator var="tp" value="tps">
+  
+                                           <TR align="middle" class="ItemBody">
+												<TD class="ItemBody" height="20">	<input type="checkbox" name="C1" value="ON">
+												</TD>
+												<TD class="ItemBody">	<a href="examSchemeQuery4.jsp"><s:property value="#tp.policyId"/></a>
+												</TD>
+												<TD class="ItemBody" align="left"><s:property value="#tp.tbThemeArea.theareaName"/>
+												</TD>
+												<TD class="ItemBody">	<s:property value="#tp.tbThemeDifficulty.thedifName"/>
+												</TD>
+												<TD class="ItemBody">	<s:property value="#tp.tbThemeType.thetypeName"/>
+												</TD>
+												<TD class="ItemBody">	<s:property value="#tp.examMode"/>
+												</TD>
+												<TD class="ItemBody" align="left"> <s:property value="#tp.polReworkmode"/>
+												</TD>
+												<TD class="ItemBody" align="right">	<s:property value="#tp.polOnescore"/>
+												</TD>
+												<TD class="ItemBody" align="right">	<s:property value="#tp.polThemecount"/>
+												</TD>
+												
+												<TD class="ItemBody" align="right">	20
+												</TD>
+											</TR>
+											 </s:iterator>
+											<TR align="middle" class="ItemBody">
+												<TD class="ItemBody" height="20" colspan="8"><b>合  计</b>
+												</TD>
+												
+												<TD class="ItemBody" align="right">	<b>40</b>
+												</TD>
+												
+											<TD class="ItemBody" align="right">	<b>100</b>
+												</TD>
+											</TR>
+							</TABLE>
+				</TD>
+								</TR>
+								<TR>
+									<TD align="center">
+										<input class=button type="button" name="Submit2222"  value=" 全 选 " onlick="">
+        								<input class=button type="button" name="Submit223" value="新增策略项" onClick="toAdd()">
+        								<input class=button type="button" name="Submit223"  value="删除策略项" onClick="toDelete()">
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD>
+<HR width="98%">
+						</TD>
+					</TR>
+					<TR>
+						<TD>
+							<TABLE align="center" border="0" width="90%">
+								<TR>
+									<TD align="right">
+										<input class=button type=button name="bsave" value=" 提 交 " onClick="commit()">
+										<input class=button type=button name="bsave" value=" 保 存 " onClick="save()">
+										<input class=button type=reset name="bsave" value=" 删 除 " onClick="ddelete()">
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;	
+						</TD>
+					</TR>
+				</TABLE>
+				
+			</TD>
+		</TR>
+	</TABLE><BR>
+												<TD class="ItemBody" align="right">	50
+												</TD>
+											</TR>
+											<TR align="middle" class="ItemBody">
+												<TD class="ItemBody" height="20" colspan="7"><b>合  计</b>
+												</TD>
+												
+												<TD class="ItemBody" align="right">	<b>40</b>
+												</TD>
+												
+											<TD class="ItemBody" align="right">	<b>100</b>
+												</TD>
+											</TR>
+							</TABLE>
+				</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD>
+<HR width="98%">
+						</TD>
+					</TR>
+					<TR>
+						<TD>
+							<TABLE align="center" border="0" width="90%">
+								<TR>
+									<TD align="right">
+										<input class=button type=button name="bsave" value=" 返 回 " onClick="javascript:history.back(-1)">
+									</TD>
+								</TR>
+							</TABLE>
+						</TD>
+					</TR>
+					<TR>
+						<TD>&nbsp;	
+						</TD>
+					</TR>
+				</TABLE>
+			</TD>
+		</TR>
+	</TABLE><BR>
+	<TABLE width="100%" border="0" cellpadding="0" cellspacing="0">
+		<TR>
+			<TD class="pagefootTl"><IMG src="../webep/space.gif" width="778" height="1"></TD>
+		</TR>
+		<TR>
+			<TD height="25" class="pagefoot"><FONT face="Arial, Helvetica, sans-serif">&copy;</FONT> 2005-2007  版权所有 软通动力信息技术有限公司 Powered by 软通动力武汉开发中心
+			</TD>
+		</TR>
+	</TABLE>
+</BODY>
+</HTML>
+<SCRIPT language="JavaScript">function toAdd()
+{	
+	document.location.href='examSchemeAdd2.htm'; 
+}
+</SCRIPT>

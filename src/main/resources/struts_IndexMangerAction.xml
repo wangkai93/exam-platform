@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<package name="base" namespace="/" extends="struts-default">
+<action name="*_TbUser" class="indexMangerAction" method="{1}">
+<result name="jiaowuzhuren">/loginjiaowuzhuren.jsp</result>
+<result name="banzhuren">/loginbanzhuren.jsp</result>
+<result name="jiangshi">/loginteacher.jsp</result>
+<result name="yibanyonghu">/loginyiban.jsp</result>
+<result name="guanliyuan">/login_a.jsp</result>
+<result name="error">/error.jsp</result>
+<result name="pass">/password.jsp</result>
+</action>
+</package>
+</struts>

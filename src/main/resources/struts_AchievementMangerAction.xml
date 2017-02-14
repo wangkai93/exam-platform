@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+<constant name="struts.i18n.encoding" value="GBK"/>
+<package name="com.cissst.action.AchievementMangerAction" namespace="/" extends="struts-default">
+								
+<action name="*_achievementMangerAction" class="achievementMangerAction" method="{1}">
+<result name="gradeQuery">/grade/gradeQuery.jsp</result>
+<result name="gradeQuery3">/grade/gradeQuery3.jsp</result>
+<result name="input">/error.jsp</result>
+<result name="gradeCheck">/grade/gradeCheck.jsp</result>
+<result name="gradeQuery2">/grade/gradeQuery2.jsp</result>
+<result name="gradeCheckList">/grade/gradeCheckList.jsp</result>
+<result name="gradeForCheck">/grade/gradeForCheck.jsp</result>
+<result name="examPage">/grade/examPage.jsp</result>
+
+
+</action>
+</package>
+</struts> 
